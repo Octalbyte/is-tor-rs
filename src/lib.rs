@@ -1,13 +1,23 @@
 #[cfg(test)]
 mod tests {
+
+    use crate::istor;
+
     #[test]
     fn it_works() {
         let result = 2 + 2;
         assert_eq!(result, 4);
     }
+
+    fn test_all(){
+        assert_eq!(true,istor::istor("176.10.99.200")); //in the list
+        assert_eq!(false,istor::istor("176.10.99.300")); //not in the list
+        assert_eq!(false,istor::istor("176.10.99.200\n")); //in the list, but is not an ip
+        assert_eq!(false,istor::istor("95.143.193.125")); //in the list
+    }
 }
 
-mod istor {
+pub mod istor {
 
     pub use ipaddress::IPAddress;
 
