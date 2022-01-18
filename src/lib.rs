@@ -7,16 +7,13 @@ mod tests {
     }
 }
 
-
 mod istor {
 
-    pub fn istor(ip: &str) -> bool {
+    pub fn istor(ip: &str) -> bool {}
 
-    }
-
-    pub struct TorNodes {
-        asVec: asStr.split("\n"),
-        asStr: String::from("""
+    pub fn getNodes() -> String {
+        let string = String::from(
+            "
         176.10.99.200
         109.70.100.28
         51.75.64.23
@@ -1459,7 +1456,8 @@ mod istor {
         5.2.75.218
         213.164.204.129
         52.230.19.111
-        """)
+        ",
+        );
+        return string;
     }
-
 }

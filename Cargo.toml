@@ -1,5 +1,5 @@
 [package]
-name = "is-tor"
+name = "istor"
 version = "0.1.0"
 edition = "2021"
 
@@ -8,9 +8,9 @@ edition = "2021"
 [dependencies]
 
 [lib]
-name = "is-tor"
+name = "istor"
 path = "src/lib.rs"
 
 [[bin]]
-name = "is-tor"
+name = "istor"
 path = "src/bin/main.rs"
