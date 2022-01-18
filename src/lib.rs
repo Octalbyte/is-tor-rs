@@ -9,20 +9,31 @@ mod tests {
         assert_eq!(result, 4);
     }
 
+    #[test]
     fn test_all(){
-        assert_eq!(true,istor::istor("176.10.99.200")); //in the list
-        assert_eq!(false,istor::istor("176.10.99.300")); //not in the list
-        assert_eq!(false,istor::istor("176.10.99.200\n")); //in the list, but is not an ip
-        assert_eq!(false,istor::istor("95.143.193.125")); //in the list
+        assert_eq!(true,istor::istor("176.10.99.200", false)); //in the list
+        assert_eq!(false,istor::istor("176.10.99.300", false)); //not in the list
+        assert_eq!(false,istor::istor("176.10.99.200\n", false)); //in the list, but is not an ip
+        assert_eq!(true,istor::istor("95.143.193.125", false)); //in the list
     }
 }
 
 pub mod istor {
-
+    pub use std::collections::HashMap;
     pub use ipaddress::IPAddress;
 
-    pub fn istor(ip: &str) -> bool {
-        let nodes = getNodes();
+    pub fn getNodesRealTime() -> String {
+        let resp = reqwest::blocking::get("https://check.torproject.org/torbulkexitlist").unwrap().text().unwrap();
+        return resp;
+    }
+
+
+
+    pub fn istor(ip: &str, realtime: bool) -> bool {
+        let nodes = match realtime {
+            false => getNodes(),
+            true => getNodesRealTime()
+        };
         if nodes.contains(&ip) && IPAddress::is_valid(String::from(ip)) {
             return true;
         }
