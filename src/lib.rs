@@ -11,11 +11,11 @@ mod tests {
 mod istor {
 
     pub fn istor(ip: &str) -> bool {
-        
+
     }
 
     pub struct TorNodes {
-        asVec: asStr.split
+        asVec: asStr.split("\n"),
         asStr: String::from("""
         176.10.99.200
         109.70.100.28
