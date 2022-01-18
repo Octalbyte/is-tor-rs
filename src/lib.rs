@@ -9,7 +9,15 @@ mod tests {
 
 mod istor {
 
-    pub fn istor(ip: &str) -> bool {}
+    pub use ipaddress::IPAddress;
+
+    pub fn istor(ip: &str) -> bool {
+        let nodes = getNodes();
+        if nodes.contains(&ip) && IPAddress::is_valid(String::from(ip)) {
+            return true;
+        }
+        return false;
+    }
 
     pub fn getNodes() -> String {
         let string = String::from(
