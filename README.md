@@ -27,7 +27,7 @@ istor::istor::get_nodes() -> String
 istor::istor::get_nodes_realtime() -> String
 istor::istor::istor(ip: String, connect: bool) -> bool
 ```
-If you set connect to true, the api might take longer to respond, as it will have to connect to https://check.torproject.org/torbulkexitlist to get the up-to-date exit node list.
+If you set `connect` to `true`, the api might take longer to respond, as it will have to connect to https://check.torproject.org/torbulkexitlist to get the up-to-date exit node list.
 Usually the hardcoded list will be up-to-date, but always check for new releases!
 
 ```rust
