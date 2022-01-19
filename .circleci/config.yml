@@ -14,7 +14,7 @@ jobs:
           command: rustc --version; cargo --version; rustup --version
       - run:
           name: Install dependencies
-          command: cargo install --path
+          command: cargo install --path .
       - restore_cache:
           keys:
             - v1-cargo-cache-{{ arch }}-{{ checksum "Cargo.lock" }}
