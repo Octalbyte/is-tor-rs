@@ -1,4 +1,3 @@
-use std::env;
 use istor::istor;
 use colored::*;
 use clap::Parser;
@@ -16,10 +15,16 @@ struct Args {
     /// Should connect to the online node list?
     #[clap(short, long)]
     connect: bool,
+
+    #[clap(short, long)]
+    quiet: bool,
+
 }
 
 fn main() {
-    println!("isTor CLI v{} made by {}", VERSION.bold(), AUTHOR.bold());
     let args = Args::parse();
+    if !args.quiet {
+        println!("isTor CLI v{} made by {}", VERSION.bold(), AUTHOR.bold());
+    }
     println!("{}", istor::istor(args.ip.as_str(), args.connect));
 }
