@@ -1,6 +1,6 @@
-use istor::istor;
-use colored::*;
 use clap::Parser;
+use colored::*;
+use istor::istor;
 
 const AUTHOR: &str = "@Octalbyte";
 const VERSION: &str = "0.1.0";
@@ -18,7 +18,6 @@ struct Args {
 
     #[clap(short, long)]
     quiet: bool,
-
 }
 
 fn main() {
