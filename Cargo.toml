@@ -2,6 +2,9 @@
 name = "istor"
 version = "0.1.0"
 edition = "2021"
+description = "Check if an IP is a tor exit node"
+license = "MIT"
+authors = ["Octalbyte <octalbyte0o52@protonmail.com"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
