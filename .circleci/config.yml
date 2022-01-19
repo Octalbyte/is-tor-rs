@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build-and-test:
     docker:
-      - image: cimg/rust:nightly
+      - image: cimg/rust:1.57.0
     environment:
       # Build fails on warnings
       RUSTFLAGS: '-D warnings'
