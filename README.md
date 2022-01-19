@@ -3,8 +3,11 @@ Identify if an IP is a Tor exit node, for Rust.
 
 ## Install
 
-`cargo install istor`
+```bash
+cargo install istor #You can install as cli tool
+```
 ```toml
+#Or as crate
 #In your Cargo.toml
 [dependencies]
 istor = "0.1.0"
