@@ -13,8 +13,8 @@ jobs:
           name: Version information
           command: rustc --version; cargo --version; rustup --version
       - run:
-          name: Install dependencies
-          command: cargo build
+          name: Install dependencies & OpenSSL
+          command: cargo build; sudo apt-get update; apt-get install libssl-dev
       - restore_cache:
           keys:
             - v1-cargo-cache-{{ arch }}-{{ checksum "Cargo.lock" }}
