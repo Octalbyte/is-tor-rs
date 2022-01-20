@@ -56,14 +56,7 @@ jobs:
           command: docker run --security-opt seccomp=unconfined -v "${PWD}:/volume" xd009642/tarpaulin cargo tarpaulin --ignore-tests --avoid-cfg-tarpaulin
    
  
-  check-syntax:
-    docker:
-      - image: cimg/rust:1.54.0
-    steps:
-      - checkout
-      - run:
-          name: Check
-          command: cargo check
+
           
 # The workflow will **ONLY** run when changes are detected on `main` or `release` branches.
 # Please see the comment below to change this behavior.
@@ -90,9 +83,4 @@ workflows:
               only:
                 - /^main/
                 - /^release.*/
-      - check-syntax:
-          filters:
-            branches:
-              only:
-                - /^main/
-                - /^release.*/
+     
