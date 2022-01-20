@@ -48,8 +48,6 @@ jobs:
 
  
   coverage:
-    docker:
-      - image: cimg/rust:1.54.0
     machine: true
     steps:
       - checkout
@@ -59,7 +57,8 @@ jobs:
    
  
   check-syntax:
-    machine: true
+    docker:
+      - image: cimg/rust:1.54.0
     steps:
       - checkout
       - run:
