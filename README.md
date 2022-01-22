@@ -45,3 +45,11 @@ fn main(){
     //=> Will check if the Ip is in the online list; also true
 }
 ```
+## Donate
+```toml
+# Wallets to which you can donate :)
+
+  BTC = "3NC14JNuzdLkxJTdNa6bnFXaYzMKMc1Uwt"
+  ETH = "0xc41c0f847d58121f552c683e454ddafeb415f25e"
+  XMR = "875smxvwbP64MFZnHrHwHcGahoEB4a5ARGCBidr95LqL4GEPiB4T8J74UB5TzrXK3wbTZ1iidfYoV37KZq1vqWCQSNztDAF"  
+```
