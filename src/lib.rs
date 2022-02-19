@@ -1,9 +1,10 @@
 #[cfg(test)]
 mod test;
-mod req;
+
 
 pub mod istor {
 
+    use ureq;
 
     fn isvalid_ip(ip: String) -> bool {
         if ip.contains("\n") {
@@ -20,10 +21,11 @@ pub mod istor {
     }
 
     pub fn get_nodes_real_time() -> String {
-        let resp = reqwest::blocking::get("https://check.torproject.org/torbulkexitlist")
-            .unwrap()
-            .text()
-            .unwrap();
+        let resp: String = ureq::get("https://check.torproject.org/torbulkexitlist")
+        .call()
+        .unwrap()
+        .into_string()
+        .unwrap();
         return resp;
     }
 

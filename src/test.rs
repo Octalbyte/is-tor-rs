@@ -2,17 +2,13 @@
 pub mod tests {
 
     use crate::istor;
-    use crate::req::find_nodes;
+
     #[test]
     fn it_works() {
         let result = 2 + 2;
         assert_eq!(result, 4);
     }
 
-    #[test]
-    fn nodes() {
-        find_nodes();
-    }
 
     #[test]
     fn test_all() {
