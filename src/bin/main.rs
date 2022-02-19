@@ -2,7 +2,7 @@ use clap::Parser;
 use istor::istor;
 
 const AUTHOR: &str = "@Octalbyte";
-const VERSION: &str = "0.1.0";
+const VERSION: &str = "0.2.0";
 
 #[derive(Parser, Debug)]
 #[clap(author, version, about, long_about = None)]
