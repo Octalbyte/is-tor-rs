@@ -37,9 +37,18 @@ mod tests {
 }
 
 pub mod istor {
-    pub use ipaddress::IPAddress;
     pub use std::collections::HashMap;
 
+    fn isvalidIp(ip: String) -> bool {
+        if ip.contains("\n") {
+            return false;
+        }
+        if ip.split(".").collect().len() != 4 {
+            return false;
+        }
+        return true;
+    }
+    
     pub fn get_nodes_real_time() -> String {
         let resp = reqwest::blocking::get("https://check.torproject.org/torbulkexitlist")
             .unwrap()
@@ -53,7 +62,7 @@ pub mod istor {
             false => get_nodes(),
             true => get_nodes_real_time(),
         };
-        if nodes.contains(&ip) && IPAddress::is_valid(String::from(ip)) {
+        if nodes.contains(&ip) &&  isvalidIp(String::from(&ip)) {
             return true;
         }
         return false;
