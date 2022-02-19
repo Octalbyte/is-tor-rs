@@ -10,7 +10,7 @@ repository = "https://github.com/onionstuff/is-tor-rs"
 
 [dependencies]
 ureq = "2.4.0"
-clap = { version = "3.0.9", features = ["derive"] }
+minparse = "0.1.2"
 
 [lib]
 name = "istor"

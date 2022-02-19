@@ -11,10 +11,10 @@ pub mod istor {
             return false;
         }
         let v: Vec<&str> = ip.split(".").collect();
-        if v[3] == "" {
+	if v.len() != 4 {
             return false;
         }
-        if v.len() != 4 {
+        if v[3] == "" {
             return false;
         }
         return true;
