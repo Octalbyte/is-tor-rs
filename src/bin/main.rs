@@ -1,5 +1,4 @@
 use clap::Parser;
-use colored::*;
 use istor::istor;
 
 const AUTHOR: &str = "@Octalbyte";
@@ -23,7 +22,7 @@ struct Args {
 fn main() {
     let args = Args::parse();
     if !args.quiet {
-        println!("isTor CLI v{} made by {}", VERSION.bold(), AUTHOR.bold());
+        println!("isTor CLI v{} made by {}", VERSION, AUTHOR);
     }
     println!("{}", istor::istor(args.ip.as_str(), args.connect));
 }
