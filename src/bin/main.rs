@@ -1,26 +1,33 @@
 use clap::Parser;
 use istor::istor;
+use minparse;
 
 const AUTHOR: &str = "@Octalbyte";
 const VERSION: &str = "0.2.0";
 
-#[derive(Parser, Debug)]
-#[clap(author, version, about, long_about = None)]
 struct Args {
-    /// Ip to check
-    #[clap(short, long)]
     ip: String,
-
-    /// Should connect to the online node list?
-    #[clap(short, long)]
     connect: bool,
-
-    #[clap(short, long)]
     quiet: bool,
 }
 
 fn main() {
-    let args = Args::parse();
+    let fi = minparse::fields();
+    let ip = match fi.get(String::from("ip")) {
+        Some(i) => {
+            i
+        },
+        None => {
+            println!("Provide an ip");
+            std::process::exit(1);
+        }
+    }
+    let sw = minparse::switches();
+    let args = Args {
+        ip: ip,
+        connect: sw.contains(String::from("connect")),
+        quiet: sw.contains(String::from("quiet"))           
+    }
     if !args.quiet {
         println!("isTor CLI v{} made by {}", VERSION, AUTHOR);
     }
