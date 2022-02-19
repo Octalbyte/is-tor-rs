@@ -31,7 +31,6 @@ If you set `connect` to `true`, the api might take longer to respond, as it will
 Usually the hardcoded list will be up-to-date, but always check for new releases!
 
 ```rust
-extern crate istor;
 use istor::istor;
 
 fn main(){
