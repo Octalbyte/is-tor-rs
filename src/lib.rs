@@ -1,12 +1,14 @@
 pub mod istor {
-    pub use std::collections::HashMap;
+
 
     fn isvalid_ip(ip: String) -> bool {
         if ip.contains("\n") {
             return false;
         }
         let v: Vec<&str> = ip.split(".").collect();
-
+        if v[3] == "" {
+            return false;
+        }
         if v.len() != 4 {
             return false;
         }
